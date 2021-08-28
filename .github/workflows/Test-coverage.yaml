@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main, develop]
 
-name: R-CMD-check
+name: Test coverage
 
 jobs:
   R-CMD-check:
@@ -15,16 +15,14 @@ jobs:
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         config:
-          - {os: macOS-latest,   r: 'release'}
-          - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
@@ -39,20 +37,11 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: rcmdcheck
+          extra-packages: covr, tinytest
 
-      - name: Check
-        env:
-          _R_CHECK_CRAN_INCOMING_: false
+      - name: Coverage
         run: |
-          options(crayon.enabled = TRUE)
+          library(tinytest)
           roxygen2::roxygenize()
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
+          covr::codecov()
         shell: Rscript {0}
-
-      - name: Upload check results
-        if: failure()
-        uses: actions/upload-artifact@main
-        with:
-          name: ${{ runner.os }}-r${{ matrix.config.r }}-results
-          path: check
