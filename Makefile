@@ -4,6 +4,8 @@ PKGNAME=Rpkgtemplate
 help:
 	-@ echo "R-cmd-check: Builds and checks (--as-cran) the Rpkg"
 	-@ echo "test: Executes all unit-tests"
+	-@ echo "lint: Starts linting"
+	-@ echo "README: Builds README.md"
 
 NAMESPACE: R/*
 	Rscript -e "roxygen2::roxygenize()"
@@ -22,6 +24,9 @@ clean-cmd-check-files:
 
 test: NAMESPACE
 	Rscript -e "pkgload::load_all(); tinytest::test_all()"
+
+lint:
+	Rscript -e "lintr::lint_dir()"
 
 README:
 	Rscript -e "rmarkdown::render(input='README.Rmd', output_format='md_document')"
