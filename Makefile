@@ -1,7 +1,14 @@
 SHELL := /bin/bash
 PKGNAME=Rpkgtemplate
 
-R-cmd-check:
+help:
+	-@ echo "R-cmd-check: Builds and checks (--as-cran) the Rpkg"
+	-@ echo "test: Executes all unit-tests"
+
+NAMESPACE: R/*
+	Rscript -e "roxygen2::roxygenize()"
+
+R-cmd-check: NAMESPACE
 	R CMD build .
 	R CMD check --as-cran $(PKGNAME)*.tar.gz
 	make clean-pkg-build-file
@@ -12,3 +19,6 @@ clean-pkg-build-file:
 
 clean-cmd-check-files:
 	rm -rf $(PKGNAME).Rcheck
+
+test: NAMESPACE
+	Rscript -e "pkgload::load_all(); tinytest::test_all()"
