@@ -22,3 +22,6 @@ clean-cmd-check-files:
 
 test: NAMESPACE
 	Rscript -e "pkgload::load_all(); tinytest::test_all()"
+
+README:
+	Rscript -e "rmarkdown::render(input='README.Rmd', output_format='md_document')"

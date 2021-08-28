@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# TODOs for using the Rpkgtemplate
+
+After copying the files from this template the
+package names has to be updated in 
+
+- README.Rmd
+- Makefile
+
+
+# $Rpkgtemplate
+
+Standardizes the my personal R-packages on github.
+
+## Installation
+
+You can install it from CRAN
+
+```{r, eval = FALSE}
+install.packages('$Rpkgtemplate')
+```
+
+or github
+
+```{r gh-installation, eval = FALSE}
+remotes::install_github('MarselScheer/$Rpkgtemplate')
+```
+
+# sessionInfo
+
+```{r}
+sessionInfo()
+```
