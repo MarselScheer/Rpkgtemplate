@@ -5,7 +5,7 @@
 ##' @return 0
 ##' @export
 ##' @examples
-##' dummy_function()
+##' print("no explicit example")
 dummy_function <- function() {
   return(0)
 }
