@@ -12,12 +12,18 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![R build status](https://github.com/MarselScheer/Rpkgtemplate/workflows/R-CMD-check/badge.svg)](https://github.com/MarselScheer/Rpkgtemplate/actions)
+[![Coverage Status](https://img.shields.io/codecov/c/github/MarselScheer/Rpkgtemplate/develop.svg)](https://codecov.io/github/MarselScheer/Rpkgtemplate?branch=develop)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/Rpkgtemplate)](https://cran.r-project.org/package=Rpkgtemplate)
+[![metacran downloads](https://cranlogs.r-pkg.org/badges/Rpkgtemplate)](https://cran.r-project.org/package=Rpkgtemplate)
+
+
 # TODOs for using the Rpkgtemplate
 
 After copying the files from this template the
 package names has to be updated in 
 
-- README.Rmd
+- README.Rmd (also the badges)
 - Makefile
 
 
