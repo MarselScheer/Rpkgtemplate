@@ -6,6 +6,7 @@ help:
 	-@ echo "test: Executes all unit-tests"
 	-@ echo "lint: Starts linting"
 	-@ echo "README: Builds README.md"
+	-@ echo "pkgdown: Builds pkgdown site"
 
 NAMESPACE: R/*
 	Rscript -e "roxygen2::roxygenize()"
@@ -27,6 +28,9 @@ test: NAMESPACE
 
 lint:
 	Rscript -e "lintr::lint_dir()"
+
+pkgdown:
+	Rscript -e "library(pkgdown); pkgdown::build_site()"
 
 README:
 	Rscript -e "rmarkdown::render(input='README.Rmd', output_format='md_document')"
