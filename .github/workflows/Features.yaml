@@ -3,6 +3,8 @@
 on:
   push:
     branches: [feature/**]
+    paths: [DESCRIPTION, .Rbuildignore, R/**, tests/**, inst/**, .github/**]
+
 
 name: Feature-branch-checks
 

@@ -3,8 +3,10 @@
 on:
   push:
     branches: [main, develop]
+    paths: [DESCRIPTION, .Rbuildignore, R/**, tests/**, inst/**, .github/**]
   pull_request:
     branches: [main, develop]
+    paths: [DESCRIPTION, .Rbuildignore, R/**, tests/**, inst/**, .github/**]
 
 name: R-CMD-check
 
