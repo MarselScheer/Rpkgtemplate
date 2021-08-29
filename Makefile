@@ -29,7 +29,7 @@ test: NAMESPACE
 lint:
 	Rscript -e "lintr::lint_dir()"
 
-pkgdown:
+pkgdown: NAMESPACE
 	Rscript -e "library(pkgdown); pkgdown::build_site()"
 
 README:
