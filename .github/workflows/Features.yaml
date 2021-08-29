@@ -47,7 +47,9 @@ jobs:
         run: |
           library(tinytest)
           roxygen2::roxygenize()
-          covr::codecov()
+          test_covr <- covr::package_coverage()
+          lowest_covr_value <- min(sapply(test_covr, "[[", "value"))
+          if (lowest_covr_value < 1) stop(sprintf("Coverage of %s (<1) too low", lowest_covr_value))
         shell: Rscript {0}
 
       - name: Check
