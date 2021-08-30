@@ -53,7 +53,16 @@ possible to exclude certain branches from fetch, like:
     fetch = ^refs/heads/gh-pages
 ```
 
+# docker-folder
 
+The dockerfile defines an image that provides an RStudio
+server and an emacs installation. The script start.sh
+starts the container in a way that allows run the emacs
+on the X11-system of the host system. By default the folder
+'~/docker_fs' from the host system is mounted into the 
+docker container and links '.emacs.d, .ssh, .gitconfig'
+from the 'docker_fs'-folder into the home folder of the 
+user 'rstudio' of the docker container.
 
 # $Rpkgtemplate
 
