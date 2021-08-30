@@ -19,7 +19,25 @@ updated in
 
 The CI-pipeline will create a pkgdown site that is deployed to the
 branch ‘gh-pages’. Just go to the settings and specify that branch on
-the ‘pages’-entry to make the pkgdown-site accessible.
+the ‘pages’-entry to make the pkgdown-site accessible. In order to avoid
+to fetch the origin/gh-pages one can modify the git-config:
+
+    git config -e
+
+and then add
+
+    [remote "origin"]
+        ...
+        fetch = +refs/heads/main:refs/remotes/origin/main
+        fetch = +refs/heads/develop:refs/remotes/origin/develop
+        fetch = +refs/heads/feature/*:refs/remotes/origin/feature/*
+
+In newer versions of git (probably &gt;= 2.29) it should be also
+possible to exclude certain branches from fetch, like:
+
+    [remote "origin"]
+        ...
+        fetch = ^refs/heads/gh-pages
 
 $Rpkgtemplate
 =============
