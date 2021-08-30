@@ -2,3 +2,5 @@ README.Rmd
 Makefile
 LICENSE
 ^\.github$
+docs/
+docker/
