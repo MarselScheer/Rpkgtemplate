@@ -38,16 +38,6 @@ possible to exclude certain branches from fetch, like:
         ...
         fetch = ^refs/heads/gh-pages
 
-# docker-folder
-
-The dockerfile defines an image that provides an RStudio server and an
-emacs installation. The script start.sh starts the container in a way
-that allows run the emacs on the X11-system of the host system. By
-default the folder ‘~/docker\_fs’ from the host system is mounted into
-the docker container and links ‘.emacs.d, .ssh, .gitconfig’ from the
-‘docker\_fs’-folder into the home folder of the user ‘rstudio’ of the
-docker container.
-
 # $Rpkgtemplate
 
 Standardizes the my personal R-packages on github.
@@ -61,6 +51,23 @@ You can install it from CRAN
 or github
 
     remotes::install_github('MarselScheer/$Rpkgtemplate')
+
+# Package development
+
+## docker-folder
+
+The dockerfile defines an image that provides an RStudio server and an
+emacs installation. The script start.sh starts the container in a way
+that allows run the emacs on the X11-system of the host system. By
+default the folder ‘~/docker\_fs’ from the host system is mounted into
+the docker container and links ‘.emacs.d, .ssh, .gitconfig’ from the
+‘docker\_fs’-folder into the home folder of the user ‘rstudio’ of the
+docker container.
+
+## renv
+
+The package renv is used to easily install all packages that are
+necessary for package development. It is not used in the CI-pipeline.
 
 # sessionInfo
 
@@ -81,10 +88,10 @@ or github
     #> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
     #> 
     #> attached base packages:
-    #> [1] stats     graphics  grDevices utils     datasets  methods   base     
+    #> [1] stats     graphics  grDevices datasets  utils     methods   base     
     #> 
     #> loaded via a namespace (and not attached):
-    #>  [1] compiler_4.1.0    magrittr_2.0.1    tools_4.1.0       htmltools_0.5.1.1
+    #>  [1] compiler_4.1.0    magrittr_2.0.1    htmltools_0.5.1.1 tools_4.1.0      
     #>  [5] yaml_2.2.1        stringi_1.7.3     rmarkdown_2.10    knitr_1.33       
     #>  [9] stringr_1.4.0     xfun_0.25         digest_0.6.27     rlang_0.4.11     
-    #> [13] evaluate_0.14
+    #> [13] renv_0.14.0       evaluate_0.14
