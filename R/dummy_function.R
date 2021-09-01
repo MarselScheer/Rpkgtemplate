@@ -2,10 +2,12 @@
 ##'
 ##' .. content for details ..
 ##' @title Dummy function from the package template
+##' @param ignored integer. dummy parameter that is ignored
 ##' @return 0
 ##' @export
 ##' @examples
-##' print("no explicit example")
-dummy_function <- function() {
+##' dummy_function()
+dummy_function <- function(ignored = 1L) {
+  checkmate::assertInteger(x = ignored)
   return(0)
 }

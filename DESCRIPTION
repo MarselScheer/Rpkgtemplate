@@ -8,9 +8,10 @@ Authors@R:
            email = "marsel.scheer@freescience.de")
 Description: The only purpose of this package is to standardize
     the structure of my personal R-packages on github.
+Imports: checkmate (>= 2.0.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests: tinytest, roxygen2, rmarkdown, lintr

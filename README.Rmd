@@ -53,16 +53,6 @@ possible to exclude certain branches from fetch, like:
     fetch = ^refs/heads/gh-pages
 ```
 
-# docker-folder
-
-The dockerfile defines an image that provides an RStudio
-server and an emacs installation. The script start.sh
-starts the container in a way that allows run the emacs
-on the X11-system of the host system. By default the folder
-'~/docker_fs' from the host system is mounted into the 
-docker container and links '.emacs.d, .ssh, .gitconfig'
-from the 'docker_fs'-folder into the home folder of the 
-user 'rstudio' of the docker container.
 
 # $Rpkgtemplate
 
@@ -81,6 +71,24 @@ or github
 ```{r gh-installation, eval = FALSE}
 remotes::install_github('MarselScheer/$Rpkgtemplate')
 ```
+
+# Package development
+## docker-folder
+
+The dockerfile defines an image that provides an RStudio
+server and an emacs installation. The script start.sh
+starts the container in a way that allows run the emacs
+on the X11-system of the host system. By default the folder
+'~/docker_fs' from the host system is mounted into the 
+docker container and links '.emacs.d, .ssh, .gitconfig'
+from the 'docker_fs'-folder into the home folder of the 
+user 'rstudio' of the docker container.
+
+## renv
+
+The package renv is used to easily install all packages
+that are necessary for package development. It is not
+used in the CI-pipeline.
 
 # sessionInfo
 
