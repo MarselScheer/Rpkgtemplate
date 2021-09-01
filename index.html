@@ -83,11 +83,6 @@
 <span id="cb3-2"><a href="#cb3-2"></a>    ...</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    fetch =<span class="st"> </span><span class="er">^</span>refs<span class="op">/</span>heads<span class="op">/</span>gh<span class="op">-</span>pages</span></code></pre></div>
 </div>
-<div id="docker-folder" class="section level1">
-<h1 class="hasAnchor">
-<a href="#docker-folder" class="anchor"></a>docker-folder</h1>
-<p>The dockerfile defines an image that provides an RStudio server and an emacs installation. The script start.sh starts the container in a way that allows run the emacs on the X11-system of the host system. By default the folder ‘~/docker_fs’ from the host system is mounted into the docker container and links ‘.emacs.d, .ssh, .gitconfig’ from the ‘docker_fs’-folder into the home folder of the user ‘rstudio’ of the docker container.</p>
-</div>
 <div id="rpkgtemplate" class="section level1">
 <h1 class="hasAnchor">
 <a href="#rpkgtemplate" class="anchor"></a>$Rpkgtemplate</h1>
@@ -99,6 +94,20 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">install.packages</span>(<span class="st">'$Rpkgtemplate'</span>)</span></code></pre></div>
 <p>or github</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">'MarselScheer/$Rpkgtemplate'</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="package-development" class="section level1">
+<h1 class="hasAnchor">
+<a href="#package-development" class="anchor"></a>Package development</h1>
+<div id="docker-folder" class="section level2">
+<h2 class="hasAnchor">
+<a href="#docker-folder" class="anchor"></a>docker-folder</h2>
+<p>The dockerfile defines an image that provides an RStudio server and an emacs installation. The script start.sh starts the container in a way that allows run the emacs on the X11-system of the host system. By default the folder ‘~/docker_fs’ from the host system is mounted into the docker container and links ‘.emacs.d, .ssh, .gitconfig’ from the ‘docker_fs’-folder into the home folder of the user ‘rstudio’ of the docker container.</p>
+</div>
+<div id="renv" class="section level2">
+<h2 class="hasAnchor">
+<a href="#renv" class="anchor"></a>renv</h2>
+<p>The package renv is used to easily install all packages that are necessary for package development. It is not used in the CI-pipeline.</p>
 </div>
 </div>
 <div id="sessioninfo" class="section level1">
@@ -121,13 +130,13 @@
 <span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt; [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       </span></span>
 <span id="cb6-16"><a href="#cb6-16"></a><span class="co">#&gt; </span></span>
 <span id="cb6-17"><a href="#cb6-17"></a><span class="co">#&gt; attached base packages:</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#&gt; [1] stats     graphics  grDevices datasets  utils     methods   base     </span></span>
 <span id="cb6-19"><a href="#cb6-19"></a><span class="co">#&gt; </span></span>
 <span id="cb6-20"><a href="#cb6-20"></a><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt;  [1] compiler_4.1.0    magrittr_2.0.1    tools_4.1.0       htmltools_0.5.1.1</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt;  [1] compiler_4.1.0    magrittr_2.0.1    htmltools_0.5.1.1 tools_4.1.0      </span></span>
 <span id="cb6-22"><a href="#cb6-22"></a><span class="co">#&gt;  [5] yaml_2.2.1        stringi_1.7.3     rmarkdown_2.10    knitr_1.33       </span></span>
 <span id="cb6-23"><a href="#cb6-23"></a><span class="co">#&gt;  [9] stringr_1.4.0     xfun_0.25         digest_0.6.27     rlang_0.4.11     </span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="co">#&gt; [13] evaluate_0.14</span></span></code></pre></div>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">#&gt; [13] renv_0.14.0       evaluate_0.14</span></span></code></pre></div>
 </div>
 
   </div>
