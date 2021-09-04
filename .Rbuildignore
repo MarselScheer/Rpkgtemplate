@@ -1,8 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
 ^renv$
 ^renv\.lock$
 README.Rmd
 Makefile
 LICENSE
 ^\.github$
+_pkgdown.yml
 docs/
 docker/

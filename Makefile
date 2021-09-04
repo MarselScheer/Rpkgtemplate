@@ -14,7 +14,7 @@ NAMESPACE: R/*
 
 R-cmd-check: NAMESPACE
 	R CMD build .
-	R CMD check --as-cran $(PKGNAME)*.tar.gz
+	R CMD check --as-cran --no-manual $(PKGNAME)*.tar.gz
 	make clean-pkg-build-file
 	make clean-cmd-check-files
 
@@ -31,7 +31,7 @@ coverage: NAMESPACE
 	Rscript -e "pkgload::load_all(); covr::package_coverage(type = 'tests')"
 
 lint:
-	Rscript -e "pkgload::load_all(); lintr::lint_package()"
+	Rscript -e "library(tinytest); pkgload::load_all(); lintr::lint_package()"
 
 pkgdown: NAMESPACE
 	Rscript -e "library(pkgdown); pkgdown::build_site()"
